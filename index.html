@@ -1,10 +1,289 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta content="" name="description" />
+    <meta content="webthemez" name="author" />
+    <title>蓝耘DashBoard</title>
+    <!-- Bootstrap Styles-->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FontAwesome Styles-->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <!-- Morris Chart Styles-->
+    <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+    <!-- Custom Styles-->
+    <link href="assets/css/custom-styles.css" rel="stylesheet" />
+    <!-- Google Fonts-->
+    <link rel="stylesheet" href="assets/js/Lightweight-Chart/cssCharts.css"> 
 </head>
+
 <body>
+      <div id="container">
+		  <div class="header"> 
+            <h1>
+                仪表板 <small>欢迎使用蓝耘后台仪表板</small>
+            </h1>									
+		  </div>
+            <div id="page-inner">
+
+                <!-- /. ROW  -->
+	
+                <div class="row">
+                    <div class="col-md-3 col-sm-12 col-xs-12">
+                        <div class="board">
+                            <div class="panel panel-primary">
+                                <div class="number">
+                                    <h3>
+                                        <h3 id="all1"></h3>
+                                        <small>总收入</small>
+                                    </h3> 
+                                </div>
+                                <div class="icon">
+                                   <i class="fa fa-eye fa-5x red"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+					
+                    <div class="col-md-3 col-sm-12 col-xs-12">
+                        <div class="board">
+                            <div class="panel panel-primary">
+                                <div class="number">
+                                    <h3>
+                                        <h3 id="all2"></h3>
+                                        <small>总毛利润</small>
+                                    </h3> 
+                                </div>
+                                <div class="icon">
+                                    <i class="fa fa-shopping-cart fa-5x blue"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+					
+                    <div class="col-md-3 col-sm-12 col-xs-12">
+                        <div class="board">
+                            <div class="panel panel-primary">
+                                <div class="number">
+                                    <h3>
+                                        <h3 id="all3"></h3>
+                                        <small>销售合同总数</small>
+                                    </h3> 
+                                </div>
+                                <div class="icon">
+                                    <i class="fa fa-comments fa-5x green"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+					
+                    <div class="col-md-3 col-sm-12 col-xs-12">
+                        <div class="board">
+                            <div class="panel panel-primary">
+                                <div class="number">
+                                    <h3>
+                                        <h3 id="all4"></h3>
+                                        <small>客户数量</small>
+                                    </h3> 
+                                </div>
+                                <div class="icon">
+                                    <i class="fa fa-user fa-5x yellow"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>			   
+                </div>
+                  
+                <div class="row">
+                    <div class="col-md-3 col-sm-12 col-xs-12">
+                        <div class="panel panel-default">
+                            <div class="panel panel-body easypiechart-panel">
+                                <h4>今日收入</h4>
+                                <div class="number">
+                                    <h3>
+                                        <h3 id="today1"></h3>
+                                        
+                                        <h3 id="today1a"></h3>
+                                    </h3> 
+                                </div> 
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 col-xs-12">
+                        <div class="panel panel-default">
+                            <div class="panel panel-body easypiechart-panel">
+                                <h4>今日毛利润</h4>
+                                <div class="number">
+                                    <h3>
+                                        <h3 id="today2"></h3>
+                                        
+                                        <h3 id="today2a"></h3>
+                                    </h3> 
+                                </div> 
+                            </div>
+
+                        </div>
+                    </div>
+					
+                    <div class="col-md-3 col-sm-12 col-xs-12">
+                        <div class="panel panel-default">
+                            <div class="panel panel-body easypiechart-panel">
+                                <h4>今日合同数量</h4>
+                                <div class="number">
+                                    <h3>
+                                        <h3 id="today3"></h3>
+                                        
+                                        <h3 id="today3a"></h3>
+                                    </h3> 
+                                </div> 
+                            </div>
+
+                        </div>
+                    </div>
+					
+                    <div class="col-md-3 col-sm-12 col-xs-12">
+                        <div class="panel panel-default">
+                            <div class="panel panel-body easypiechart-panel">
+                                <h4>今日新增客户数量</h4>
+                                <div class="number">
+                                    <h3>
+                                        <h3 id="today4"></h3>
+                                        
+                                        <h3 id="today4a"></h3>
+                                    </h3> 
+                                </div> 
+                            </div>
+
+                        </div>
+                    </div>			   
+                </div>       
+                
+
+                 <div class="row">
+                    <div class="col-sm-6 col-xs-12">  
+                        <div class="panel panel-default chartJs">
+                            <div class="panel-heading">
+                                <div class="card-title">
+                                    <div class="title">最近8天收入变化</div>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <canvas id="line-chart" class="chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xs-12">
+                        <div class="panel panel-default chartJs">
+                            <div class="panel-heading">
+                                <div class="card-title">
+                                    <div class="title">最近8天利润变化</div>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <canvas id="bar-chart" class="chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				
+
+		                
+
+                
+        
+				<div class="row">
+				<div class="col-md-5">
+						<div class="panel panel-default">
+						<div class="panel-heading">
+							Line Chart
+						</div>
+						<div class="panel-body">
+							<div id="morris-line-chart"></div>
+						</div>						
+					</div>   
+				</div>		
+					
+				<div class="col-md-7">
+					<div class="panel panel-default">
+					<div class="panel-heading">
+                                Bar Chart Example
+                            </div>
+                            <div class="panel-body">
+                                <div id="morris-bar-chart"></div>
+                            </div>
+						
+					</div>  
+				</div>
+					
+				</div> 
+			 
+				
+				
+                <div class="row">
+                    <div class="col-md-9 col-sm-12 col-xs-12">
+                        <div class="panel panel-default">                            
+							<div class="panel-heading">
+							Area Chart
+						</div>
+						<div class="panel-body">
+							<div id="morris-area-chart"></div>
+						</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 col-xs-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Donut Chart Example
+                            </div>
+                            <div class="panel-body">
+                                <div id="morris-donut-chart"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- /. ROW  -->
+
+                <!-- /. ROW  -->
+			
+            </div>
+            <!-- /. PAGE INNER  -->
+        </div>
+        <!-- /. PAGE WRAPPER  -->
+
+    <!-- /. WRAPPER  -->
+    <!-- JS Scripts-->
+
+    <!-- jQuery Js -->
+    <script src="assets/js/jquery-1.10.2.js"></script>
+    <!-- Bootstrap Js -->
+    <script src="assets/js/bootstrap.min.js"></script>
+	 
+    <!-- Metis Menu Js -->
+    <script src="assets/js/jquery.metisMenu.js"></script>
+    <!-- Morris Chart Js -->
+    <script src="assets/js/morris/raphael-2.1.0.min.js"></script>
+    <script src="assets/js/morris/morris.js"></script>
+	
+	
+	<script src="assets/js/easypiechart.js"></script>
+	<script src="assets/js/easypiechart-data.js"></script>
+	
+	 <script src="assets/js/Lightweight-Chart/jquery.chart.js"></script>
+	
+    <!-- Custom Js -->
+    <script src="assets/js/custom-scripts.js"></script>
+    <!-- Put data -->
+    <script src="assets/js/putdata.js"></script>
+    <!-- Chart Js -->
+    <script type="text/javascript" src="assets/js/Chart.min.js"></script>  
+    <script type="text/javascript" src="assets/js/chartjs.js"></script> 
 
 </body>
+
 </html>
